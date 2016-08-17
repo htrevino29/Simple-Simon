@@ -1,1 +1,55 @@
-simpleSimon-css.css
+#board {
+	background-color: black;
+	height: 510px;
+	width: 510px;
+	border-style: solid;
+	border: black;	
+}
+#red{
+	background-color: red;
+	height:240px;
+	width:240px;
+	float:left;
+	margin-top:10px;
+	margin-left:10px;
+	margin-right:5px;
+	margin-bottom:5px;
+
+}
+#blue{
+	background-color: blue;
+	height:240px;
+	width:240px;
+	float:left;
+	margin-top:5px;
+	margin-left:10px;
+	margin-right:5px;
+	margin-bottom:10px;
+
+
+	
+
+}
+#green{
+	background-color: green;
+	height:240px;
+	width:240px;
+	float:left;
+	margin-top:5px;
+	margin-left:5px;
+	margin-right:10px;
+	margin-bottom:10px;
+
+}
+#yellow{
+	background-color: yellow;
+	height:240px;
+	width:240px;
+	float:left;
+	margin-top:10px;
+	margin-left:5px;
+	margin-right:10px;
+	margin-bottom:5px;
+	
+
+}
