@@ -1,15 +1,28 @@
 console.log("linked");
 // Randomly select a square and fade that color in then out.
 
-$(function(){
- 
-  var divColors = ["#red", "#green", "#yellow", "#blue"];
-  var elemLength = divColors.length;
-  var randomNum = Math.floor(Math.random()*elemLength);
-  var randomDiv = divColors[randomNum];
-  $(randomDiv).css("opacity", "1");
- 
-});	
+$( "#start" ).click(function() {  	
+  	function flashColor(){
+		  var divColors = ["#red", "#green", "#yellow", "#blue"];
+		  var elemLength = divColors.length;
+		  var randomNum = Math.floor(Math.random()*elemLength);
+		  var randomDiv = divColors[randomNum];
+		  $(randomDiv).animate({
+		  	opacity:'1'
+		  	},200).animate({
+		  	opacity:'0.5'
+		  	},800)
+
+	};
+	flashColor();
+
+
+
+});
+	
+
+	
+
 // 
 
 
