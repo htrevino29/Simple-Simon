@@ -1,8 +1,11 @@
 console.log("linked");
 // Randomly select a square and fade that color in then out.
 var divColors = ["#red", "#green", "#yellow", "#blue"]; //# grabs id and lets the function change the css all in one go
+var randomDiv;
+var clickedDiv = '';
+$( "#start" ).click(function() {  
 
-$( "#start" ).click(function() {  	
+
   	function flashColor(){
 		  var elemLength = divColors.length;
 		  var randomNum = Math.floor(Math.random()*elemLength);
@@ -16,9 +19,22 @@ $( "#start" ).click(function() {
 	};
 	flashColor();	
 // Allow the user to click on the square that was selected.
-	$( ".color" ).click(function() {
-	  console.log("#" + this.id);	  
+
+var clickedDiv = $( ".color" ).click
+	(function() {
+	var thisId = "#" + this.id;	
+	console.log(thisId);
 	});
+	if (condition) {
+    // code here gets executed if condition evaluates to true
+	} else {
+	    // code here gets executed if condition evaluates to false
+	}
+
+
+
+	
+
 	
 });
 
