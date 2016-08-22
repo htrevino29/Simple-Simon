@@ -1,5 +1,6 @@
 console.log("linked");
-(function(){
+// (function(){
+	'use strict';
 	// Randomly select a square and fade that color in then out.
 	var divColors = ["#red", "#green", "#yellow", "#blue"]; 
 	//# grabs id and lets the function change the css all in one go
@@ -67,7 +68,7 @@ console.log("linked");
 	/////////////////////	
 	});
 
-})();
+// })();
 
 // Continue randomly selecting colored square/shapes 
 // adding the new random selection to be added to the previous selection. 
