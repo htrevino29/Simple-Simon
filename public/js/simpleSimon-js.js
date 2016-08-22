@@ -3,39 +3,71 @@ console.log("linked");
 var divColors = ["#red", "#green", "#yellow", "#blue"]; //# grabs id and lets the function change the css all in one go
 var randomDiv;
 var clickedDiv = '';
-$( "#start" ).click(function() {  
+var thisId;
+var randomSequence =[];
 
 
-  	function flashColor(){
-		  var elemLength = divColors.length;
-		  var randomNum = Math.floor(Math.random()*elemLength);
-		  var randomDiv = divColors[randomNum];
-		  $(randomDiv).animate({
-		  	opacity:'1'
-		  	},200).animate({
-		  	opacity:'0.5'
-		  	},800)
-		  	console.log(randomDiv);
-	};
-	flashColor();	
+
+function simonsPick(){
+	var randomNum = Math.floor(Math.random()*divColors.length);
+	randomDiv = divColors[randomNum];
+	randomSequence.push(randomDiv);
+}
+
+function flashColor(idSelector){   
+  $(idSelector).animate({
+  	opacity:'1'
+  	},200).animate({
+  	opacity:'0.5'
+  	},800)
+  	// console.log(idSelector);
+};
+
+function playBack(){
+	var i = 0;
+
+	setInterval(function(){
+		var currentDiv = randomSequence[i];
+		flashColor(currentDiv); 
+		i++;
+
+
+	},1000);
+}
+
+$( "#start" ).click(function() {
+	simonsPick(); 
+	playBack();
+	console.log(randomSequence);	
 // Allow the user to click on the square that was selected.
 
-var clickedDiv = $( ".color" ).click
-	(function() {
-	var thisId = "#" + this.id;	
-	console.log(thisId);
+	$( ".color" ).click(function() {
+
+		thisId = "#" + this.id;	
+		// console.log(thisId);
+		flashColor(thisId);
+		
+
+		
+		incorrect
+		correct
+		is there more
+
+		if (randomSequence[0] == thisId) {
+		console.log('you lose!') 
+		simonsPick();
+		playBack();
+		} else if{
+
+		}else{
+
+		}
+
 	});
-	if (condition) {
-    // code here gets executed if condition evaluates to true
-	} else {
-	    // code here gets executed if condition evaluates to false
-	}
+/////////////////////
 
 
-
-	
-
-	
+/////////////////////	
 });
 
 
