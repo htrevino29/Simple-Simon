@@ -8,7 +8,7 @@ console.log("linked");
 	var clickedDiv = '';
 	var thisId;
 	var randomSequence =[];
-
+	var currentIndex = 0;
 
 
 	function simonsPick(){
@@ -20,9 +20,9 @@ console.log("linked");
 	function flashColor(idSelector){   
 	  $(idSelector).animate({
 	  	opacity:'1'
-	  	},200).animate({
+	  	},300).animate({
 	  	opacity:'0.5'
-	  	},800)
+	  	},300)
 	  	// console.log(idSelector);
 	};
 
@@ -34,12 +34,13 @@ console.log("linked");
 			flashColor(currentDiv); 
 			i++;
 		},1000);
+		console.log(randomSequence);
 	}
 
 	$( "#start" ).click(function() {
 		simonsPick(); 
 		playBack();
-		console.log(randomSequence);	
+			
 	// Allow the user to click on the square that was selected.
 
 		$( ".color" ).click(function() {
@@ -51,21 +52,25 @@ console.log("linked");
 			// correct
 			// is there more
 
-			if (randomSequence[0] !== thisId) {
-			console.log('you lose!'); 
-			simonsPick();
-			playBack();
-			} else if {
+			if (thisId == randomSequence[currentIndex] && thisId == randomSequence[randomSequence.length - 1] ) {	
+				currentIndex = 0;
+				simonsPick();
+				playBack();
+			} else if (randomSequence[currentIndex] == thisId && currentIndex < randomSequence.length ) {
 
-			}else{
-
-			}
-
-		});
-	/////////////////////
+				console.log('keep going');
+				currentIndex++;
 
 
-	/////////////////////	
+			} else {
+				console.log('you lose!');
+				currentIndex = 0;
+				randomSequence = [];
+
+			} 
+
+		});	
+
 	});
 
 // })();
