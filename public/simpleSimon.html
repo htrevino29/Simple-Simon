@@ -3,19 +3,21 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Simple Simon</title>
+		<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="stylesheet" href="/css/simpleSimon-css.css">
 		
 		
 	</head>
 	<body>
-		<div id="board">
-			<div class="color" id="red"    value='1' >1</div>   
-			<div class="color" id="green"  value='2' >2</div>
-			<div class="color" id="yellow" value='3' >3</div>
-			<div class="color" id="blue"   value='4' >4</div>
-		</div> 
-		<button class="startGame" id='start'>Start Game</button>
-
+		<h1 class="text-center">Simple Simon</h1>
+		<div class='col-sm-6 col-sm-offset-3' id="board">
+			<div class="color" id="red"    value='1' ></div>   
+			<div class="color" id="green"  value='2' ></div>
+			<div class="color" id="yellow" value='3' ></div>
+			<div class="color" id="blue"   value='4' ></div>
+	
+			<button class="startGame btn-primary .active " id='start'>Start Game</button>
+			</div> 
 
 
 
@@ -35,6 +37,7 @@
 
 
 	<script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/simpleSimon-js.js"></script>
 	</body>
 </html>
