@@ -1,5 +1,5 @@
 console.log("linked");
-// (function(){
+(function(){
 	'use strict';
 	// Randomly select a square and fade that color in then out.
 	var divColors = ["#red", "#green", "#yellow", "#blue"]; 
@@ -9,12 +9,15 @@ console.log("linked");
 	var thisId;
 	var randomSequence =[];
 	var currentIndex = 0;
+	var i = 0;
 
 
 	function simonsPick(){
 		var randomNum = Math.floor(Math.random()*divColors.length);
 		randomDiv = divColors[randomNum];
 		randomSequence.push(randomDiv);
+		i=0;
+		playBack();
 	}
 
 	function flashColor(idSelector){   
@@ -23,57 +26,67 @@ console.log("linked");
 	  	},300).animate({
 	  	opacity:'0.5'
 	  	},300)
-	  	// console.log(idSelector);
+	  	
 	};
 
 	function playBack(){
-		var i = 0;
+	console.log(randomSequence);
 
-		setInterval(function(){
+		setTimeout(function(){
 			var currentDiv = randomSequence[i];
 			flashColor(currentDiv); 
+	
 			i++;
+			
+			if (i < randomSequence.length){
+				playBack();
+			} else {
+				clicks();
+			} 
 		},1000);
-		console.log(randomSequence);
-	}
+
+	};
 
 	$( "#start" ).click(function() {
 		simonsPick(); 
-		playBack();
 			
+	});
 	// Allow the user to click on the square that was selected.
-
-		$( ".color" ).click(function() {
+	var clicks = function() {
+		$( ".color" ).on("click", function() {
 			thisId = "#" + this.id;	
 			// console.log(thisId);
 			flashColor(thisId);
 				
+			// correct,
+			// is there more,
 			// incorrect
-			// correct
-			// is there more
 
-			if (thisId == randomSequence[currentIndex] && thisId == randomSequence[randomSequence.length - 1] ) {	
-				currentIndex = 0;
-				simonsPick();
-				playBack();
-			} else if (randomSequence[currentIndex] == thisId && currentIndex < randomSequence.length ) {
+			if (thisId == randomSequence[currentIndex] ) {
 
-				console.log('keep going');
+			
 				currentIndex++;
 
-
+				if ( currentIndex == randomSequence.length ) {
+					console.log('keep going');
+					currentIndex = 0;
+					$('.color').off('click');					
+					simonsPick();
+				} else {
+					$('.color').off('click');
+					clicks();
+				}
 			} else {
-				console.log('you lose!');
-				currentIndex = 0;
-				randomSequence = [];
+				$('.color').off('click');
+				alert('GAME OVER!')
+				location.reload();
 
 			} 
 
 		});	
+	}
 
-	});
-
-// })();
+})();
 
 // Continue randomly selecting colored square/shapes 
 // adding the new random selection to be added to the previous selection. 
